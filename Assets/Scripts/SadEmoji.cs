@@ -5,12 +5,13 @@ using UnityEngine;
 public class SadEmoji : MonoBehaviour
 {
 
-    float speed = 10;
+    public Vector2 speedMinMax;
+    float speed;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        speed = Mathf.Lerp(speedMinMax.x, speedMinMax.y, Difficulty.GetDifficultyPercent());
     }
 
     // Update is called once per frame

@@ -32,4 +32,13 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector2(-screenHalfWidthInWorldUnits, transform.position.y);
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D triggerCollider)
+    {
+        if(triggerCollider.tag == "Sad Emoji")
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

@@ -6,9 +6,10 @@ public class Spawner : MonoBehaviour
 {
 
     public GameObject sadEmojiPrefab;
-    public float secondsBetweenSpawns = 1;
+    public Vector2 secondsBetweenSpawnsMinMax;
     float nextSpawnTime;
-
+    public Vector2 spawnSizeMinMax;
+    public float spawnAngleMax;
     Vector2 screenHalfSizeWorldUnits;
 
     // Start is called before the first frame update
@@ -22,9 +23,14 @@ public class Spawner : MonoBehaviour
     {
         if (Time.time > nextSpawnTime)
         {
+            float secondsBetweenSpawns = Mathf.Lerp(secondsBetweenSpawnsMinMax.y, secondsBetweenSpawnsMinMax.x, Difficulty.GetDifficultyPercent());
             nextSpawnTime = Time.time + secondsBetweenSpawns;
-            Vector2 spawnPosition = new Vector2(Random.Range(-screenHalfSizeWorldUnits.x, screenHalfSizeWorldUnits.x), screenHalfSizeWorldUnits.y);
-            Instantiate(sadEmojiPrefab, spawnPosition, Quaternion.identity);
+
+            float spawnAngle = Random.Range(-spawnAngleMax, spawnAngleMax);
+            float spawnSize = Random.Range(spawnSizeMinMax.x, spawnSizeMinMax.y);
+            Vector2 spawnPosition = new Vector2(Random.Range(-screenHalfSizeWorldUnits.x, screenHalfSizeWorldUnits.x), screenHalfSizeWorldUnits.y + spawnSize);
+            GameObject newEmoji = (GameObject)Instantiate(sadEmojiPrefab, spawnPosition, Quaternion.Euler(Vector3.forward * spawnAngle));
+            newEmoji.transform.localScale = Vector2.one * spawnSize;
         }
     }
 }
