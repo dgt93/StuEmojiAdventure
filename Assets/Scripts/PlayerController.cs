@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     public float speed = 15;
     float screenHalfWidthInWorldUnits;
     public event System.Action OnPlayerDeath;
+    public event System.Action OnPlayerScore;
+    public Sprite[] sprites;
+    private SpriteRenderer spriteR;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,12 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector2(-screenHalfWidthInWorldUnits, transform.position.y);
         }
+
+        if (ScoreController.GetScore() > 10)
+        {
+
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D triggerCollider)
@@ -41,6 +50,12 @@ public class PlayerController : MonoBehaviour
             OnPlayerDeath?.Invoke();
             Destroy(gameObject);
         }
+
+        if(triggerCollider.tag == "Sad Emoji")
+        {
+            OnPlayerScore?.Invoke();
+        }
+
     }
 
 }

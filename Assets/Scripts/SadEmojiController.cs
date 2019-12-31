@@ -22,12 +22,23 @@ public class SadEmojiController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.down * speed * Time.deltaTime);
+        if(gameObject != null)
+        {
+            transform.Translate(Vector3.down * speed * Time.deltaTime);
 
-        if (transform.position.y < visibleHeightThreshold)
+            if (transform.position.y < visibleHeightThreshold)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D triggerCollider)
+    {
+        if (triggerCollider.tag == "Player")
         {
             Destroy(gameObject);
         }
-
     }
+
 }

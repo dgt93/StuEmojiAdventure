@@ -8,8 +8,7 @@ public class GameOver : MonoBehaviour
 {
 
     public GameObject gameOverScreen;
-    public Text secondsSurvivedUI;
-    bool gameOver;
+    public Text scoreUI;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +28,7 @@ public class GameOver : MonoBehaviour
     void OnGameOver()
     {
         gameOverScreen.SetActive(true);
-        secondsSurvivedUI.text = Time.timeSinceLevelLoad.ToString();
-        gameOver = true;
+        scoreUI.text = ScoreController.GetScore().ToString();
     }
 
 }

@@ -4,11 +4,12 @@ using UnityEngine;
 
 public static class Difficulty
 {
-    static float secondsToMaxDifficulty = 60;
+    static float scoreForMaxDifficulty = 20;
 
     public static float GetDifficultyPercent()
     {
-        return Mathf.Clamp01(Time.timeSinceLevelLoad / secondsToMaxDifficulty);
+        float score = ScoreController.GetScore();
+        return Mathf.Clamp01(score / scoreForMaxDifficulty);
     }
 
 }
