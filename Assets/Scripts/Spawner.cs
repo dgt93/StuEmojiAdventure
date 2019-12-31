@@ -5,10 +5,14 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
 
-    public GameObject sadEmojiPrefab;
+    public GameObject EmojiPrefab;
+    public GameObject SadEmojiPrefab;
     public Vector2 secondsBetweenSpawnsMinMax;
+    public Vector2 secondsBetweenSadSpawnsMinMax;
     float nextSpawnTime;
+    float nextSadSpawnTime;
     public Vector2 spawnSizeMinMax;
+    public Vector2 spawnSadSizeMinMax;
     public float spawnAngleMax;
     Vector2 screenHalfSizeWorldUnits;
 
@@ -29,8 +33,21 @@ public class Spawner : MonoBehaviour
             float spawnAngle = Random.Range(-spawnAngleMax, spawnAngleMax);
             float spawnSize = Random.Range(spawnSizeMinMax.x, spawnSizeMinMax.y);
             Vector2 spawnPosition = new Vector2(Random.Range(-screenHalfSizeWorldUnits.x, screenHalfSizeWorldUnits.x), screenHalfSizeWorldUnits.y + spawnSize);
-            GameObject newEmoji = (GameObject)Instantiate(sadEmojiPrefab, spawnPosition, Quaternion.Euler(Vector3.forward * spawnAngle));
+            GameObject newEmoji = (GameObject)Instantiate(EmojiPrefab, spawnPosition, Quaternion.Euler(Vector3.forward * spawnAngle));
             newEmoji.transform.localScale = Vector2.one * spawnSize;
         }
+
+        if (Time.time > nextSadSpawnTime)
+        {
+            float secondsBetweenSadSpawns = Mathf.Lerp(secondsBetweenSadSpawnsMinMax.x, secondsBetweenSadSpawnsMinMax.y, Difficulty.GetDifficultyPercent());
+            nextSadSpawnTime = Time.time + secondsBetweenSadSpawns;
+
+            float spawnAngle = Random.Range(-spawnAngleMax, spawnAngleMax);
+            float spawnSize = Random.Range(spawnSadSizeMinMax.x, spawnSadSizeMinMax.y);
+            Vector2 spawnPosition = new Vector2(Random.Range(-screenHalfSizeWorldUnits.x, screenHalfSizeWorldUnits.x), screenHalfSizeWorldUnits.y + spawnSize);
+            GameObject newEmoji = (GameObject)Instantiate(SadEmojiPrefab, spawnPosition, Quaternion.Euler(Vector3.forward * spawnAngle));
+            newEmoji.transform.localScale = Vector2.one * spawnSize;
+        }
+
     }
 }

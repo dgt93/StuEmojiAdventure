@@ -38,10 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         if(triggerCollider.tag == "Not Sad Emoji")
         {
-            if(OnPlayerDeath!= null)
-            {
-                OnPlayerDeath();
-            }
+            OnPlayerDeath?.Invoke();
             Destroy(gameObject);
         }
     }
