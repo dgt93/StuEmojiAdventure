@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     public float speed = 15;
     float screenHalfWidthInWorldUnits;
     public event System.Action OnPlayerDeath;
     public event System.Action OnPlayerScore;
-    public Sprite[] sprites;
+    public Sprite normal;
+    public Sprite Lightning;
+    public float LightningScale;
     private SpriteRenderer spriteR;
 
     // Start is called before the first frame update
     void Start()
     {
+        spriteR = GetComponent<SpriteRenderer>();
+        spriteR.sprite = normal;
+        speed = 15;
         float halfPlayerWidth = transform.localScale.x / 2f;
         screenHalfWidthInWorldUnits = Camera.main.aspect * Camera.main.orthographicSize + halfPlayerWidth;
     }
@@ -36,9 +40,14 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector2(-screenHalfWidthInWorldUnits, transform.position.y);
         }
 
-        if (ScoreController.GetScore() > 10)
+        if (ScoreController.GetScore() > 9)
         {
-
+            spriteR = GetComponent<SpriteRenderer>();
+            spriteR.sprite = Lightning;
+            transform.localScale = new Vector3(LightningScale, LightningScale);
+            speed = 25;
+            float halfPlayerWidth = transform.localScale.x / 2f;
+            screenHalfWidthInWorldUnits = Camera.main.aspect * Camera.main.orthographicSize + halfPlayerWidth;
         }
 
     }

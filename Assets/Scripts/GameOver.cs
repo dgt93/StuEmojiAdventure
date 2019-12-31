@@ -9,6 +9,7 @@ public class GameOver : MonoBehaviour
 
     public GameObject gameOverScreen;
     public Text scoreUI;
+    public GameObject smallScoreUI;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class GameOver : MonoBehaviour
     {
         gameOverScreen.SetActive(true);
         scoreUI.text = ScoreController.GetScore().ToString();
+        smallScoreUI.SetActive(false);
     }
 
 }
