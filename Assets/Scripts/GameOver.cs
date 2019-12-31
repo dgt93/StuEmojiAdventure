@@ -29,7 +29,7 @@ public class GameOver : MonoBehaviour
     void OnGameOver()
     {
         gameOverScreen.SetActive(true);
-        secondsSurvivedUI.text = Time.time.ToString();
+        secondsSurvivedUI.text = Time.timeSinceLevelLoad.ToString();
         gameOver = true;
     }
 

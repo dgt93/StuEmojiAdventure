@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D triggerCollider)
     {
-        if(triggerCollider.tag == "Sad Emoji")
+        if(triggerCollider.tag == "Not Sad Emoji")
         {
             if(OnPlayerDeath!= null)
             {
