@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 15;
     float screenHalfWidthInWorldUnits;
+    public event System.Action OnPlayerDeath;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,10 @@ public class PlayerController : MonoBehaviour
     {
         if(triggerCollider.tag == "Sad Emoji")
         {
+            if(OnPlayerDeath!= null)
+            {
+                OnPlayerDeath();
+            }
             Destroy(gameObject);
         }
     }
