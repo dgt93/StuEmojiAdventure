@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 15;
+    public float defaultSpeed = 15;
+    private float speed = 15;
     float screenHalfWidthInWorldUnits;
     public event System.Action OnPlayerDeath;
     public event System.Action OnPlayerScore;
@@ -18,7 +19,8 @@ public class PlayerController : MonoBehaviour
     {
         spriteR = GetComponent<SpriteRenderer>();
         spriteR.sprite = normal;
-        speed = 15;
+        transform.localScale = new Vector3(0.1f, 0.1f);
+        speed = defaultSpeed;
         float halfPlayerWidth = transform.localScale.x / 2f;
         screenHalfWidthInWorldUnits = Camera.main.aspect * Camera.main.orthographicSize + halfPlayerWidth;
     }
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         float inputX = Input.GetAxisRaw("Horizontal");
         float velocity = inputX * speed;
         transform.Translate(Vector2.right * velocity * Time.deltaTime);
@@ -66,5 +69,4 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-
 }

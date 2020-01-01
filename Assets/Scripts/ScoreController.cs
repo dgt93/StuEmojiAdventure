@@ -11,6 +11,7 @@ public class ScoreController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        score = 0;
         FindObjectOfType<PlayerController>().OnPlayerScore += UpdateScore;
     }
 
