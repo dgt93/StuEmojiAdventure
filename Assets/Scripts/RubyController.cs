@@ -2,25 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SadEmojiController : MonoBehaviour
+public class RubyController : MonoBehaviour
 {
+
     public Vector2 speedMinMax;
     float speed;
     float visibleHeightThreshold;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         speed = Mathf.Lerp(speedMinMax.x, speedMinMax.y, Difficulty.GetDifficultyPercent());
 
         visibleHeightThreshold = -Camera.main.orthographicSize - transform.localScale.y;
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(gameObject != null)
+        if (gameObject != null)
         {
             transform.Translate(Vector3.down * speed * Time.deltaTime);
 

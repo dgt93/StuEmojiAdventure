@@ -68,5 +68,14 @@ public class PlayerController : MonoBehaviour
             OnPlayerScore?.Invoke();
         }
 
+        if (triggerCollider.tag == "Ruby")
+        {
+            OnPlayerScore?.Invoke();
+            OnPlayerScore?.Invoke();
+            OnPlayerScore?.Invoke();
+            OnPlayerScore?.Invoke();
+            OnPlayerScore?.Invoke();
+        }
+
     }
 }
