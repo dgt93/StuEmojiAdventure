@@ -236,7 +236,7 @@ MonoBehaviour:
   SadEmojiPrefab: {fileID: 5026972568348426547, guid: bda3c82bfd8cfce4a976f7857b64cc1c,
     type: 3}
   secondsBetweenSpawnsMinMax: {x: 0.1, y: 1}
-  secondsBetweenSadSpawnsMinMax: {x: 0.8, y: 1.3}
+  secondsBetweenSadSpawnsMinMax: {x: 0.8, y: 1}
   spawnSizeMinMax: {x: 0.5, y: 1.5}
   spawnSadSizeMinMax: {x: 0.7, y: 0.9}
   spawnAngleMax: 10

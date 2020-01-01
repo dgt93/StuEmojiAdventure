@@ -99,6 +99,14 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8b51fbe194942564eb956fe177fb4448, type: 3}
   - {fileID: 21300000, guid: 2a0a5f95016c64e49b2b2fb58e4678d0, type: 3}
   - {fileID: 21300000, guid: b8e31a76dc99bd445808487f73d9d919, type: 3}
+  - {fileID: 21300000, guid: ebc5200834b34de45a16781c18a01f77, type: 3}
+  - {fileID: 21300000, guid: 258b2815e05567341b3674d3285edb63, type: 3}
+  - {fileID: 21300000, guid: b2da254ccc1c59f4f80a086e2f1d7f07, type: 3}
+  - {fileID: 21300000, guid: a772556c7d2b59c47b0f1f82f99c0a5e, type: 3}
+  - {fileID: 21300000, guid: 3b56197f76f620e4481a30fcb01360a8, type: 3}
+  - {fileID: 21300000, guid: 2c8824849a2bf6c499bc8df44255118d, type: 3}
+  - {fileID: 21300000, guid: 54ac8c9683a22cc4289c345db580ebf5, type: 3}
+  - {fileID: 21300000, guid: efe7db83bd8a2ef4088cb4f1c6d32270, type: 3}
 --- !u!50 &5026972568348426545
 Rigidbody2D:
   serializedVersion: 4
